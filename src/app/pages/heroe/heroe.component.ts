@@ -28,10 +28,17 @@ export class HeroeComponent implements OnInit {
     // console.log(form);
     // console.log(this.heroe);
 
-    this.heroesService.crearHeroe( this.heroe )
-      .subscribe( resp => {
-        console.log(resp);
-      });
+    if ( this.heroe.id ) {
+      this.heroesService.actualizarHeroe( this.heroe )
+        .subscribe( resp => {
+          console.log(resp);
+        });
+    } else {
+      this.heroesService.crearHeroe( this.heroe )
+        .subscribe( resp => {
+          console.log(resp);
+        });
+    }
   }
 
 }
