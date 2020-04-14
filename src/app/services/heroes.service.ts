@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 import { HeroeModel } from '../models/heroe.model';
 
@@ -54,6 +54,14 @@ export class HeroesService {
               .pipe(
                 map( this.crearArreglo )
               );
+
+    // === CON EL PIPE delay 1500 milisegundos ===
+
+    // return this.http.get(`${ this.url }/heroes.json`)
+    //           .pipe(
+    //             map( this.crearArreglo ),
+    //             delay(1500)
+    //           );
   }
 
   private crearArreglo( heroesObj: object ) {
